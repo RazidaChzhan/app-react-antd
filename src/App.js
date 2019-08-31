@@ -14,7 +14,7 @@ export default class Menu extends Component {
                 <Switch>
                   <Route exact path="/" component={MainPage} />
                   <Route exact path="/allnews" component={NewsList} />
-                  <Route path="/detail" component={DetailNews} />
+                  <Route path="/detail" component={DetailNews}/>
                   <Route path="/add" component={AddNews} />       
                   <Route component={NotFound}/>
                 </Switch>

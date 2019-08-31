@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import {Helmet} from "react-helmet";
-import { Card, Col, Row, Button } from 'antd';
-// import Item from "antd/lib/list/Item";
+import { Card, Col, Row } from 'antd';
+
 
 export default class NewsList extends Component {
     constructor(props) {
@@ -26,10 +26,10 @@ export default class NewsList extends Component {
 
     render() {
 
-        const gridStyle = {
-        width: '100%',
-        textAlign: 'left',
-        };
+        // const gridStyle = {
+        // width: '100%',
+        // textAlign: 'left',
+        // };
 
         const { articles } = this.state;
         console.log('articles', articles);
@@ -45,10 +45,23 @@ export default class NewsList extends Component {
                             <Card 
                             title={article.title} 
                             bordered={false}>
-                            <img alt="example" src={article.urlToImage}  height="100"></img>
-                            <p>{article.description}</p>
-                            <p>{article.publishedAt.slice(0, 10)}</p>
-                            <Button type="primary" href={article.url} size="small" shape="round">Подробнee</Button>
+                            {/* <img alt="example" src={article.urlToImage}  height="100"></img>
+                            <p>{article.description}</p> */}
+                            <p>Дата публикации: {article.publishedAt.slice(0, 10)}</p> 
+                            <NavLink to={{
+                                pathname:'/detail',
+                                articleProps:{
+                                    title: article.title,
+                                    description: article.description,
+                                    url: article.url,
+                                    urlToImage: article.urlToImage,
+                                    publishedAt: article.publishedAt,
+
+                                }
+                            }} >Подробнee</NavLink>
+                            {/* <DetailNews article={article}/> */}
+                            {/*  */}
+                        
                             </Card>
                         </Col>
                     </Row>
