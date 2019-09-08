@@ -45,8 +45,6 @@ export default class NewsList extends Component {
                             <Card 
                             title={article.title} 
                             bordered={false}>
-                            {/* <img alt="example" src={article.urlToImage}  height="100"></img>
-                            <p>{article.description}</p> */}
                             <p>Дата публикации: {article.publishedAt.slice(0, 10)}</p> 
                             <NavLink to={{
                                 pathname:'/detail',
@@ -58,37 +56,12 @@ export default class NewsList extends Component {
                                     publishedAt: article.publishedAt,
 
                                 }
-                            }} >Подробнee</NavLink>
-                            {/* <DetailNews article={article}/> */}
-                            {/*  */}
-                        
+                            }} >Подробнee</NavLink>                 
                             </Card>
                         </Col>
                     </Row>
                 </div>
             ))}
-
-            
-            {/* {articles.map(article => (
-                <Card.Grid style={gridStyle}>
-                    <img alt="example" src={article.urlToImage}  height="100"></img>
-                    <p>{article.description}</p>
-                    <p>{article.publishedAt.slice(0, 10)}</p>
-                </Card.Grid>
-            ))} */}
-
-            {/* {articles.map(article => (
-                <Card.Grid style={gridStyle}>
-                    <Card 
-                        title={article.title}
-                        bordered={false}>
-                        <img alt="example" src={article.urlToImage} height="100"></img>
-                        <p>{article.description}</p>
-                        <p>{article.publishedAt.slice(0, 10)}</p>
-                    </Card>
-                </Card.Grid>
-            ))} */}
-
         </div>
       );
     }
