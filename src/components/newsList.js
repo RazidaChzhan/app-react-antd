@@ -54,7 +54,6 @@ export default class NewsList extends Component {
                                     url: article.url,
                                     urlToImage: article.urlToImage,
                                     publishedAt: article.publishedAt,
-
                                 }
                             }} >Подробнee</NavLink>                 
                             </Card>

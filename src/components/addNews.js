@@ -103,7 +103,7 @@ export default class PageForm extends Component {
         
         <br>
         </br>
-        <Button type="primary">Сохранить</Button>
+        <Button type="primary" htmlType="submit">Сохранить</Button>
        
       </form>
     );

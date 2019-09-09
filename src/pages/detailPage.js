@@ -3,19 +3,21 @@ import { Layout} from 'antd';
 import 'antd/dist/antd.css';
 import HeaderPage from './headerPage';
 import FooterPage from './footerPage';
-import DetailNews from '../components/detailNews';
+import DetailNews from '../components/detailNews'
 
 const { Content} = Layout;
 
 export default class DetailPage extends Component {
 
   render () {
+    console.log('detailPage', this.props.location.articleProps);
+    const details = this.props.location.articleProps;
     return (
       <Layout>
-        <HeaderPage />
+        <HeaderPage/>
         <Content style={{ padding: '0 50px', marginTop: 64 }}>
           <div style={{ background: '#fff', padding: 24, minHeight: 380 }}>
-            <DetailNews/>
+            <DetailNews details = {details}/>
           </div>
         </Content>
         <FooterPage/>
