@@ -1,5 +1,5 @@
 import React from "react";
-import { Formik, Form } from "formik";
+import { Formik, Field, Form } from "formik";
 import BasicFormSchema from "./BasicFormSchema";
 import { Input, Button } from 'antd';
 
@@ -56,7 +56,7 @@ const SignUp = () => (
             )}
             <br/>
 
-            <Button type="primary" htmlType="submit">Зарегистрироваться</Button>
+          <button type="submit">Submit</button>
         </Form>
       )}
     />
