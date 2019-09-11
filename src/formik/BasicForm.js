@@ -5,12 +5,11 @@ import { Input, Button } from 'antd';
 
 const SignUp = () => (
   <div className="container">
-    <h1>Пройдите регистрацию, пожалуйста:</h1>
+    <h2>Пройдите регистрацию, пожалуйста: </h2>
     <Formik
       initialValues={{
-        login: "",
         email: "",
-        phone: "",
+        username: "",
         password: ""
       }}
       validationSchema={BasicFormSchema}
@@ -20,43 +19,58 @@ const SignUp = () => (
         }, 500);
       }}
       render={({ errors, touched }) => (
-        <Form>
-          <label>Login</label>
-          <Input
-            name="login"
-            placeholder="login"
-            type="text"
+        <Form className="form-container">
+          <label htmlFor="username">Login</label>
+          <Field name="username" placeholder="login" type="text" 
+          render={({ field, form: { isSubmitting } }) => (
+            <Input {...field} disabled={isSubmitting} />
+          )} 
           />
-          <br/>
-          <label>Email</label>
-          <Input
-            name="email"
-            placeholder="mtarasov777@gmail.com"
-            type="email"
-          />
-
-          {errors.email &&
-            touched.email && <div className="field-error">{errors.email}</div>}
-          <br/>
-          <label>Phone</label>
-          <Input name="phone" placeholder="7770001122" type="phone" />
 
           {errors.username &&
             touched.username && (
               <div className="field-error">{errors.username}</div>
             )}
-            <br/>
 
-          <label>Password</label>
-          <Input name="password" placeholder="123456qwe" type="password" />
+          <label htmlFor="email">Email</label>
+          <Field
+            name="email"
+            placeholder="mtarasov777@gmail.com"
+            type="email"
+            render={({ field, form: { isSubmitting } }) => (
+              <Input {...field} disabled={isSubmitting} />
+            )} 
+          />
+
+          {errors.email &&
+            touched.email && <div className="field-error">{errors.email}</div>}
+
+          <label >Phone</label>
+          <Field name="phone" placeholder="phone" type="phone" 
+          render={({ field, form: { isSubmitting } }) => (
+            <Input {...field} disabled={isSubmitting} />
+          )} 
+          />
+
+          {errors.username &&
+            touched.username && (
+              <div className="field-error">{errors.username}</div>
+            )}
+
+          <label htmlFor="password">Password</label>
+          <Field name="password" placeholder="123456qwe" type="password" 
+          render={({ field, form: { isSubmitting } }) => (
+            <Input {...field} disabled={isSubmitting} />
+          )} 
+          />
 
           {errors.password &&
             touched.password && (
               <div className="field-error">{errors.password}</div>
             )}
-            <br/>
 
-          <button type="submit">Submit</button>
+         
+          <Button type="primary" htmlType="submit">Зарегистрироваться</Button>
         </Form>
       )}
     />
